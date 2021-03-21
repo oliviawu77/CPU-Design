@@ -1,0 +1,58 @@
+module datapath(clk,constantIn,MB,RW,DA,AA,BA,V,C,N,Z,FS,MD,DataInFromMemory,addressOut,DataOut,jumpAddress,datadpOut);
+parameter size = 8;
+
+input clk;
+input RW;
+input [1:0] DA,AA,BA;
+input [size-1:0] constantIn;
+input [size-1:0] DataInFromMemory;
+
+input MB,MD;
+input [3:0] FS;
+
+output V,C,N,Z;
+output [size-1:0] jumpAddress,addressOut,DataOut,datadpOut;
+
+wire [size-1:0] dataInReg,DataBFromReg,DataAFromReg,DataBSelected,DataOutFun;
+
+RegFile regF(
+	.DataInRegg (dataInReg),
+	.Write (RW),
+	.DAddress (DA),
+	.AAddress (AA),
+	.BAddress (BA),
+	.dataA (DataAFromReg),
+	.dataB (DataBFromReg),
+	.clk (clk)
+	);
+
+funtionUnit FU(
+	.FunSel (FS),
+	.dataA (DataAFromReg),
+	.dataB (DataBSelected),
+	.V (V),
+	.C (C),
+	.N (N),
+	.Z (Z),
+	.FuntionOut (DataOutFun)
+	);
+
+mux2to1 selB(
+	.data0 (DataBFromReg),
+	.data1 (constantIn),
+	.select (MB),
+	.dataSelected (DataBSelected)
+	);
+
+mux2to1 selF(
+	.data0 (DataOutFun),
+	.data1 (DataInFromMemory),
+	.select (MD),
+	.dataSelected (dataInReg)
+	);
+
+assign jumpAddress = DataAFromReg;
+assign addressOut = DataAFromReg;
+assign DataOut = DataBSelected;
+assign datadpOut = dataInReg;
+endmodule

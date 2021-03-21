@@ -1,0 +1,17 @@
+module decoder3to8(x,y,z,out0,out1,out2,out3,out4,out5,out6,out7);
+
+input x,y,z;
+output out0,out1,out2,out3,out4,out5,out6,out7;
+
+assign out0 = (~x)&(~y)&(~z); 
+assign out1 = (x)&(~y)&(~z);
+assign out2 = (~x)&(y)&(~z);
+assign out3 = (x)&(y)&(~z);
+assign out4 = (~x)&(~y)&(z);
+assign out5 = (x)&(~y)&(z);
+assign out6 = (~x)&(y)&(z);
+assign out7 = (x)&(y)&(z);
+
+endmodule
+
+

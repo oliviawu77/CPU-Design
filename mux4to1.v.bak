@@ -1,0 +1,19 @@
+module mux4to1(data0,data1,data2,data3,select,dataSelected);
+parameter size = 8;
+
+input [size-1:0] data0,data1,data2,data3;
+input [1:0] select;
+
+output [size-1:0] dataSelected;
+reg [size-1:0] dataSelected;
+
+always@(*)
+begin
+	case(select)
+	2'b00:dataSelected = data0;
+	2'b01:dataSelected = data1;
+	2'b10:dataSelected = data2;
+	2'b11:dataSelected = data3;
+	endcase
+end
+endmodule

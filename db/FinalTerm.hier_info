@@ -1,0 +1,56 @@
+|Reg
+clk => Rout[0]~reg0.CLK
+clk => Rout[1]~reg0.CLK
+clk => Rout[2]~reg0.CLK
+clk => Rout[3]~reg0.CLK
+clk => Rout[4]~reg0.CLK
+clk => Rout[5]~reg0.CLK
+clk => Rout[6]~reg0.CLK
+clk => Rout[7]~reg0.CLK
+enReg => enReg.IN1
+dataInreg[0] => dataInreg[0].IN1
+dataInreg[1] => dataInreg[1].IN1
+dataInreg[2] => dataInreg[2].IN1
+dataInreg[3] => dataInreg[3].IN1
+dataInreg[4] => dataInreg[4].IN1
+dataInreg[5] => dataInreg[5].IN1
+dataInreg[6] => dataInreg[6].IN1
+dataInreg[7] => dataInreg[7].IN1
+Rout[0] <= RoutBack[0].DB_MAX_OUTPUT_PORT_TYPE
+Rout[1] <= RoutBack[1].DB_MAX_OUTPUT_PORT_TYPE
+Rout[2] <= RoutBack[2].DB_MAX_OUTPUT_PORT_TYPE
+Rout[3] <= RoutBack[3].DB_MAX_OUTPUT_PORT_TYPE
+Rout[4] <= RoutBack[4].DB_MAX_OUTPUT_PORT_TYPE
+Rout[5] <= RoutBack[5].DB_MAX_OUTPUT_PORT_TYPE
+Rout[6] <= RoutBack[6].DB_MAX_OUTPUT_PORT_TYPE
+Rout[7] <= RoutBack[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Reg|mux2to1:muxInRegg
+data0mux2[0] => dataSelectedmux2.DATAA
+data0mux2[1] => dataSelectedmux2.DATAA
+data0mux2[2] => dataSelectedmux2.DATAA
+data0mux2[3] => dataSelectedmux2.DATAA
+data0mux2[4] => dataSelectedmux2.DATAA
+data0mux2[5] => dataSelectedmux2.DATAA
+data0mux2[6] => dataSelectedmux2.DATAA
+data0mux2[7] => dataSelectedmux2.DATAA
+data1mux2[0] => dataSelectedmux2.DATAB
+data1mux2[1] => dataSelectedmux2.DATAB
+data1mux2[2] => dataSelectedmux2.DATAB
+data1mux2[3] => dataSelectedmux2.DATAB
+data1mux2[4] => dataSelectedmux2.DATAB
+data1mux2[5] => dataSelectedmux2.DATAB
+data1mux2[6] => dataSelectedmux2.DATAB
+data1mux2[7] => dataSelectedmux2.DATAB
+selectmux2 => Decoder0.IN0
+dataSelectedmux2[0] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[1] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[2] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[3] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[4] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[5] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[6] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+dataSelectedmux2[7] <= dataSelectedmux2.DB_MAX_OUTPUT_PORT_TYPE
+
+
